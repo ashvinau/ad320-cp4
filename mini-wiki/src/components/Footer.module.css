@@ -1,0 +1,49 @@
+.footerContainer {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    border-top: 1px solid #2E2E2E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 35px;
+    right: 35px;
+    height: 60px;
+    z-index: 9999; /* Ensure the footer stays above other content */
+}
+
+.searchSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.searchInput {
+    background-color: #2C2C2C;
+    border: 1px solid #2E2E2E;
+    border-radius: 4px;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    height: 10px;
+    margin-top: 10px;
+    flex: 0.9
+}
+
+.searchButton {
+    background: #2C2C2C;
+    color: #FFFFFF;
+    border: 1px solid #2E2E2E;
+    border-radius: 4px;
+    padding: 5px 5px;
+    margin: 5px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.searchButton:hover {
+    background: #3C3C3C;
+}

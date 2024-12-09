@@ -1,0 +1,36 @@
+.formContainer {
+    background-color: #1E1E1E;
+    border: 1px solid #2E2E2E;
+    border-radius: 4px;
+    padding: 16px;
+    max-width: 800px; /* Set a max width for the form */
+    margin: 0 auto;   /* Center the form horizontally */
+    box-sizing: border-box;
+}
+
+.formContainer label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.formContainer input[type="text"],
+.formContainer textarea,
+.formContainer button {
+    width: 100%;         /* Ensures elements do not overflow horizontally */
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #2E2E2E;
+    border-radius: 4px;
+    background: #2C2C2C;
+    color: #FFFFFF;
+    resize: vertical;
+}
+
+.formContainer input[type="text"]:focus,
+.formContainer textarea:focus {
+    outline: none;
+    border-color: #454545;
+}
+

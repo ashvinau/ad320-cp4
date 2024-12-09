@@ -1,0 +1,68 @@
+.headerContainer {
+    background-color: #292929;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #2E2E2E;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.siteTitle {
+    font-size: 1.5em;
+    margin: 0;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.titleInput {
+    font-size: 1.2em;
+    background-color: #1E1E1E;
+    border: 1px solid #2E2E2E;
+    color: #FFFFFF;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #EEEEEE;
+    color: black;
+    margin: 7px;
+    padding: 7px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #2E2E2E;
+}
+
+.signOutButton {
+    background: #2C2C2C;
+    color: #FFFFFF;
+    border: 1px solid #2E2E2E;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.signOutButton:hover {
+    background: #3C3C3C;
+}
