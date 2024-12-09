@@ -47,3 +47,13 @@
 .searchButton:hover {
     background: #3C3C3C;
 }
+
+.footerLink {
+    color: rgb(116, 221, 255);
+    text-decoration: none;
+    padding: 5px;
+}
+
+.footerLink:hover {
+    text-decoration: underline;
+}

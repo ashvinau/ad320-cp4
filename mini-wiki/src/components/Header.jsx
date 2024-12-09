@@ -83,9 +83,8 @@ const Header = () => {
                         <img
                             className={styles.userAvatar}
                             src={currentUser.photoURL}
-                            alt="User Avatar"
                         />
-                        <span>Welcome, {currentUser.displayName}</span>
+                        <span>{currentUser.displayName}</span>
                         <button className={styles.signOutButton} onClick={handleSignOut}>Sign Out</button>
                     </div>
                 ) : (

@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import styles from './Footer.module.css';
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -42,7 +43,11 @@ const Footer = () => {
                 <button onClick={handleSearch} className={styles.searchButton}>Search</button>
             </div>
             <div className={styles.copyright}>
-                &copy; {new Date().getFullYear()} mini-wiki by Joe Wigdor
+                &copy; {new Date().getFullYear()}
+                <Link to="/about" className={styles.footerLink}>
+                    mini-wiki
+                </Link>
+                by Joe Wigdor
             </div>
         </footer>
     );

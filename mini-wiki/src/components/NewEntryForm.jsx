@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
@@ -9,9 +9,10 @@ const NewEntryForm = () => {
     const { currentUser } = useContext(AuthContext);
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
+    const titleRef = useRef(null); // Reference to the title input
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        if (e) e.preventDefault();
         if (!currentUser) {
             alert("You must be logged in to submit an entry.");
             return;
@@ -24,14 +25,27 @@ const NewEntryForm = () => {
                 authorId: currentUser.uid,
                 authorName: currentUser.displayName,
                 submissionDate: serverTimestamp(),
-                votes: { up: 0, down: 0 }, // initial votes
-                voters: {}, // track voters by userId to prevent multiple votes
+                voteCount: 0,
+                voters: {}
             });
 
+            // Reset fields after successful submission
             setTitle('');
             setText('');
+
+            // Return focus to the title field
+            if (titleRef.current) {
+                titleRef.current.focus();
+            }
+
         } catch (error) {
             console.error("Error adding entry: ", error);
+        }
+    };
+
+    const handleTextKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit();
         }
     };
 
@@ -46,6 +60,7 @@ const NewEntryForm = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
+                    ref={titleRef}
                 />
             </div>
 
@@ -55,6 +70,7 @@ const NewEntryForm = () => {
                     id="entryText"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
+                    onKeyDown={handleTextKeyDown}
                     required
                 />
             </div>
