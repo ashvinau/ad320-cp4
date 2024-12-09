@@ -24,7 +24,7 @@ const App = () => {
                     <EntryList isAuthenticated={!!currentUser} />
                 </div>
             ) : (
-                <div style={{ padding: '20px' }}>
+                <div style={contentStyle}>
                     <Login />
                     <EntryList isAuthenticated={false} />
                 </div>

@@ -22,6 +22,12 @@ const Footer = () => {
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <footer className={styles.footerContainer}>
             <div className={styles.searchSection}>
@@ -30,6 +36,7 @@ const Footer = () => {
                     placeholder="Search entries..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     className={styles.searchInput}
                 />
                 <button onClick={handleSearch} className={styles.searchButton}>Search</button>

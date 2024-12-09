@@ -1,17 +1,71 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
-import { collection, onSnapshot, orderBy, query, deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import {collection, orderBy, query, deleteDoc, doc, updateDoc, getDocs, onSnapshot} from 'firebase/firestore';
 import { AuthContext } from '../contexts/AuthContext';
 import styles from './EntryList.module.css';
 
-const VOTING_PERIOD_MINUTES = 30;
+const VOTING_PERIOD_MINUTES = 3;
+const CHECK_INTERVAL = 60000; // Fetch data every 60 seconds
 
 // eslint-disable-next-line react/prop-types
 const EntryList = ({ isAuthenticated }) => {
     const [entries, setEntries] = useState([]);
     const { currentUser } = useContext(AuthContext);
 
+    const fetchEntries = async () => {
+        const q = query(collection(db, 'entries'), orderBy('submissionDate', 'desc'));
+        const snapshot = await getDocs(q);
+
+        const newEntries = [];
+        const toDelete = [];
+        const now = new Date();
+
+        snapshot.forEach((docItem) => {
+            const data = docItem.data();
+            const submissionDate = data.submissionDate ? data.submissionDate.toDate() : null;
+            let expired = false;
+            let minutesRemaining = 0;
+
+            if (submissionDate) {
+                const diffMs = now - submissionDate;
+                const diffMinutes = diffMs / (1000 * 60);
+                if (diffMinutes > VOTING_PERIOD_MINUTES) {
+                    expired = true;
+                } else {
+                    // Calculate how many minutes remain
+                    minutesRemaining = Math.ceil(VOTING_PERIOD_MINUTES - diffMinutes);
+                }
+            }
+
+            // If expired and voteCount <= 0, mark for deletion
+            if (expired && (data.voteCount || 0) <= 0) {
+                toDelete.push(docItem.id);
+            } else {
+                // Keep the entry and store additional info
+                newEntries.push({ id: docItem.id, expired, minutesRemaining, ...data });
+            }
+        });
+
+        // Delete negative-score expired entries
+        for (const id of toDelete) {
+            await deleteDoc(doc(db, 'entries', id));
+        }
+
+        setEntries(newEntries);
+    };
+
+    useEffect(() => {
+        // Initial fetch
+        fetchEntries();
+
+        // Set up interval to fetch periodically
+        const intervalId = setInterval(fetchEntries, CHECK_INTERVAL);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    // Manual fetch on user interaction
     useEffect(() => {
         const q = query(collection(db, 'entries'), orderBy('submissionDate', 'desc'));
         const unsubscribe = onSnapshot(q, async (snapshot) => {
@@ -115,7 +169,6 @@ const EntryList = ({ isAuthenticated }) => {
                         <li key={entry.id} className={`${styles.entryItem} entry-item`}>
                             {isAuthenticated && !expired && (
                                 <div className={styles.voteButtons}>
-                                    {/* Display minutes remaining to the left of vote count */}
                                     <div className={styles.timeRemaining}>
                                         Remaining {minutesRemaining} m
                                     </div>

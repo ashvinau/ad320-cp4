@@ -24,12 +24,10 @@ const NewEntryForm = () => {
                 authorId: currentUser.uid,
                 authorName: currentUser.displayName,
                 submissionDate: serverTimestamp(),
-                expiryHours: 48, // example, you can make this dynamic
                 votes: { up: 0, down: 0 }, // initial votes
                 voters: {}, // track voters by userId to prevent multiple votes
             });
 
-            // Reset form fields after successful submission
             setTitle('');
             setText('');
         } catch (error) {

@@ -3,7 +3,7 @@
     border: 1px solid #2E2E2E;
     border-radius: 4px;
     padding: 16px;
-    max-width: 800px; /* Set a max width for the form */
+    max-width: 800px; /* Max width for the form */
     margin: 0 auto;   /* Center the form horizontally */
     box-sizing: border-box;
 }
@@ -17,7 +17,7 @@
 .formContainer input[type="text"],
 .formContainer textarea,
 .formContainer button {
-    width: 100%;         /* Ensures elements do not overflow horizontally */
+    width: 100%;
     box-sizing: border-box;
     padding: 10px;
     margin-bottom: 12px;

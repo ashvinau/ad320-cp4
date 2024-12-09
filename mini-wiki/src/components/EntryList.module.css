@@ -13,7 +13,7 @@
 }
 
 .deleteButton {
-    background: #8B0000; /* Dark red */
+    background: #8B0000;
     border-color: #8B0000;
 }
 
@@ -30,7 +30,7 @@
     margin-top: 0;
     margin-bottom: 8px;
     color: #FFFFFF;
-    max-width: 65%; /* Half of the entry container width */
+    max-width: 65%;
     white-space: normal;
     word-wrap: break-word;
 }
