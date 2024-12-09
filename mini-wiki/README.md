@@ -1,8 +1,3 @@
-# React + Vite
+# mini-wiki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A web application that allows a group to contribute to a central information hub that is centered around one topic. Users must be logged in to contribute. When new entries are submitted, they remain in a probationary period for a configurable amount of time. During this period, users cast a positive or negative vote. If the entry has a positive score at the end of voting, it remains, otherwise it is deleted.

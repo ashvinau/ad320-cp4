@@ -1,3 +1,7 @@
+// firebase.js by Joe Wigdor
+// AD300 Fall 2024
+// Contains configuration and credentials for the app to access authorization and FireStore storage from FireBase
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";

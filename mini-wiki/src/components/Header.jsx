@@ -1,3 +1,8 @@
+// Header.jsx by Joe Wigdor
+// AD300 Fall 2024
+// The Header component contains the html structure of the header at the top of the app. It also contains the logic
+// for logging in and out as well as changing the wiki title.
+
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, useContext } from 'react';
 import { doc, onSnapshot, updateDoc, setDoc } from 'firebase/firestore';

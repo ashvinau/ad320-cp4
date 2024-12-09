@@ -1,3 +1,8 @@
+// App.jsx by Joe Wigdor
+// AD300 Fall 2024
+// The content presented by index.jsx, describes the overall layout of the Login, NewEntryForm, Header,
+// EntryList, and Footer components. Routes and the About page contents are also described here.
+
 // eslint-disable-next-line no-unused-vars
 import React, { useContext } from 'react';
 import {Routes, Route, Navigate, Link} from 'react-router-dom';
@@ -19,7 +24,7 @@ const About = () => (
     <div style={{ padding: '20px' }}>
         <h2>About Mini-Wiki</h2>
         <p>A simple user-submitted wiki application.</p>
-        <p>Created as part of AD320 Web Development at North Seattle College, in Fall 2024.</p>
+        <p>Created as part of AD320 Web Development at North Seattle College, Fall 2024.</p>
         <Link to="/" className={styles.footerLink}>
             Back to Home
         </Link>

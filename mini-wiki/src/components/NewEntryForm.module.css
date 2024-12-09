@@ -1,3 +1,9 @@
+/*
+NewEntryForm.module.css by Joe Wigdor
+AD300 Fall 2024
+Describes the appearance and layout of the NewEntryForm component.
+*/
+
 .formContainer {
     background-color: #1E1E1E;
     border: 1px solid #2E2E2E;

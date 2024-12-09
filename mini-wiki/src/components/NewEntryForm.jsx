@@ -1,3 +1,9 @@
+// NewEntryForm.jsx by Joe Wigdor
+// AD300 Fall 2024
+// This component represents the interactive form where a logged in user is able to input a title and text,
+// submit new entries to FireStore, and update the interface with the new entry. It contains the overall html layout
+// of the form as well as the focus/update behavior and database submission logic.
+
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useContext, useRef } from 'react';
 import { AuthContext } from '../contexts/AuthContext';

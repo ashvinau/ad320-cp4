@@ -1,3 +1,8 @@
+// AuthContext.jsx by Joe Wigdor
+// AD300 Fall 2024
+// Establishes an authorization context which provides user login information to other components. Whether the user's
+// state is logged in determines the behavior of that component, such as what is rendered and interactive.
+
 // eslint-disable-next-line no-unused-vars
 import React, {createContext, useEffect, useState} from 'react';
 import {onAuthStateChanged} from 'firebase/auth';

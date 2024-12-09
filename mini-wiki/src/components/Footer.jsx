@@ -1,3 +1,8 @@
+// Footer.jsx by Joe Wigdor
+// AD300 Fall 2024
+// The Footer component contains the html structure of the footer at the bottom of the viewport. It also contains the
+// logic for the search feature. The link to the about page is in the bottom right.
+
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import styles from './Footer.module.css';

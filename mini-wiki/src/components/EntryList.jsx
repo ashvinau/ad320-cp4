@@ -1,3 +1,9 @@
+// EntryList.jsx by Joe Wigdor
+// AD300 Fall 2024
+// The EntryList component represents the content of the application presented as a series of signed and dated entries
+// in a list sorted by submission time. This contains the logic for fetching data from the FireStore, as well as
+// voting and deletion.
+
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
